@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Satyam Upadhyay — Creative Freelancer</title>
+<meta name="description" content="Satyam Upadhyay — Web Developer, Video Editor, Graphic Designer and Brand Designer.">
+
+<style>
+:root{--black:#050505;--white:#f7f7f4;--gray:#898989;--orange:#ff5a00;--line:rgba(255,255,255,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:Arial,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 20%,rgba(255,90,0,.09),transparent 35%),radial-gradient(circle at 80% 70%,rgba(255,255,255,.035),transparent 30%);z-index:-5}
+a{color:inherit;text-decoration:none}.container{width:min(1200px,90%);margin:auto}
+.scene{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:-2}
+.orb{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff 0%,#ffb27c 4%,#ff7a27 18%,#ff5a00 45%,#7b1e00 78%,#160600 100%);box-shadow:inset -35px -40px 70px rgba(0,0,0,.55),inset 20px 20px 35px rgba(255,255,255,.25),0 30px 100px rgba(255,90,0,.28);animation:float 9s ease-in-out infinite}
+.orb.one{width:180px;height:180px;top:15%;right:10%}.orb.two{width:95px;height:95px;top:65%;left:8%;animation-delay:-3s}.orb.three{width:55px;height:55px;top:42%;right:30%;animation-delay:-5s}
+@keyframes float{0%,100%{transform:translate3d(0,0,0) rotate(0)}50%{transform:translate3d(0,-35px,20px) rotate(12deg)}}
+.ring{position:absolute;width:330px;height:330px;right:25%;top:15%;border:2px solid rgba(255,90,0,.45);border-radius:50%;box-shadow:0 0 50px rgba(255,90,0,.12),inset 0 0 30px rgba(255,90,0,.08);transform:rotateX(65deg) rotateZ(20deg);animation:ringMove 12s linear infinite}
+@keyframes ringMove{to{transform:rotateX(65deg) rotateZ(380deg)}}
+.cube{position:absolute;width:100px;height:100px;left:10%;top:25%;transform-style:preserve-3d;animation:cubeSpin 15s linear infinite}
+.cube div{position:absolute;width:100px;height:100px;background:linear-gradient(135deg,#fff,#ddd);border:1px solid rgba(255,90,0,.7);box-shadow:inset 0 0 30px rgba(255,90,0,.12)}
+.cube .front{transform:translateZ(50px)}.cube .back{transform:rotateY(180deg) translateZ(50px)}.cube .right{transform:rotateY(90deg) translateZ(50px)}.cube .left{transform:rotateY(-90deg) translateZ(50px)}.cube .top{transform:rotateX(90deg) translateZ(50px)}.cube .bottom{transform:rotateX(-90deg) translateZ(50px)}
+@keyframes cubeSpin{from{transform:rotateX(0) rotateY(0) rotateZ(0)}to{transform:rotateX(360deg) rotateY(360deg) rotateZ(180deg)}}
+nav{position:fixed;top:0;left:0;width:100%;z-index:100;border-bottom:1px solid var(--line);background:rgba(5,5,5,.65);backdrop-filter:blur(18px)}
+.nav{width:min(1200px,90%);margin:auto;height:78px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:2px}.logo-mark{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--orange);color:var(--orange);font-family:Georgia,serif;font-size:22px;box-shadow:0 0 20px rgba(255,90,0,.15)}
+.logo-name span{color:var(--orange)}.nav-links{display:flex;gap:30px;list-style:none}.nav-links a{color:#888;font-size:13px;transition:.3s}.nav-links a:hover{color:#fff}
+section{padding:150px 0}.section-label{color:var(--orange);font-size:11px;letter-spacing:4px;margin-bottom:25px}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative}.hero h1,.section-title{font-family:Georgia,"Times New Roman",serif;text-transform:uppercase}
+.hero h1{font-size:clamp(65px,11vw,155px);line-height:.78;letter-spacing:-5px;max-width:1000px;text-shadow:1px 1px 0 #aaa,3px 3px 0 #777,6px 6px 0 rgba(255,90,0,.25),0 20px 60px rgba(0,0,0,.8)}
+.hero h1 span{color:var(--orange);text-shadow:2px 2px 0 #8f2600,5px 5px 0 #571700,0 0 35px rgba(255,90,0,.35)}
+.hero-description{max-width:580px;color:#999;font-size:17px;line-height:1.8;margin-top:50px}.hero-buttons{display:flex;gap:15px;margin-top:35px;flex-wrap:wrap}
+.btn{display:inline-block;padding:16px 25px;border:1px solid #333;font-size:12px;font-weight:700;letter-spacing:1px;transition:.35s}.btn:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(0,0,0,.5)}.btn.primary{background:var(--orange);color:white;border-color:var(--orange);box-shadow:0 10px 35px rgba(255,90,0,.22)}
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0;white-space:nowrap}.marquee-track{display:inline-block;animation:marquee 20s linear infinite}.marquee span{font-family:Georgia,serif;font-size:30px;margin-right:55px}.marquee span:after{content:"✦";color:var(--orange);margin-left:55px}@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.section-title{font-size:clamp(45px,7vw,90px);line-height:.9}.section-title span{color:var(--orange)}
+.services{margin-top:70px;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#222}.service{background:#070707;min-height:300px;padding:45px;position:relative;transform-style:preserve-3d;transition:.5s}.service:hover{transform:perspective(900px) rotateX(4deg) rotateY(-4deg) translateY(-7px);background:#0d0d0d}.service-number{color:#555;font-size:12px}.service h3{font-family:Georgia,serif;font-size:34px;margin-top:70px;text-transform:uppercase}.service p{color:#777;line-height:1.8;max-width:450px;margin-top:15px}.service:after{content:"↗";position:absolute;right:35px;bottom:30px;font-size:35px;color:var(--orange);transition:.4s}.service:hover:after{transform:translate(8px,-8px) rotate(-10deg)}
+.work-grid{margin-top:70px;display:grid;grid-template-columns:repeat(2,1fr);gap:25px}.project{min-height:470px;background:#090909;border:1px solid #202020;overflow:hidden;position:relative;transform-style:preserve-3d;transition:.4s}.project:hover{border-color:#555}
+.project-visual{height:300px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 40%,rgba(255,90,0,.22),transparent 30%),#0c0c0c}.project-visual:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle at 30% 25%,white,#ff8a3d 5%,#ff5a00 35%,#591500 80%);box-shadow:inset -30px -30px 50px rgba(0,0,0,.6),0 20px 60px rgba(255,90,0,.25);transition:.7s}.project:hover .project-visual:before{transform:scale(1.15) translateZ(50px) rotate(15deg)}.project-visual strong{position:relative;z-index:2;font-family:Georgia,serif;font-size:45px;color:white;text-shadow:3px 3px 0 rgba(0,0,0,.5)}
+.project-info{padding:28px}.project-info small{color:var(--orange);font-size:10px;letter-spacing:3px}.project-info h3{font-family:Georgia,serif;font-size:28px;margin-top:12px}.project-info p{color:#777;font-size:14px;line-height:1.7;margin-top:10px}
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:90px;align-items:center}.about-copy{font-size:24px;color:#999;line-height:1.8}.about-copy strong{color:white}.about-copy .orange{color:var(--orange)}.stats{border-top:1px solid #222}.stat{display:flex;justify-content:space-between;padding:22px 0;border-bottom:1px solid #222}.stat span:first-child{color:#555}.stat span:last-child{color:white}
+.process{margin-top:70px;border-top:1px solid #222}.step{display:grid;grid-template-columns:80px 1fr 1fr;gap:30px;padding:38px 0;border-bottom:1px solid #222}.step-number{color:var(--orange)}.step h3{font-family:Georgia,serif;font-size:28px}.step p{color:#777;line-height:1.8}
+.contact{min-height:650px;display:flex;align-items:center;position:relative}.contact h2{font-family:Georgia,serif;font-size:clamp(55px,9vw,125px);line-height:.8;letter-spacing:-4px}.contact h2 span{color:var(--orange);text-shadow:4px 4px 0 #6c1c00,0 0 40px rgba(255,90,0,.25)}.contact-email{display:inline-block;margin-top:45px;color:#aaa;border-bottom:1px solid #444;padding-bottom:8px;transition:.3s}.contact-email:hover{color:white;border-color:var(--orange)}.socials{display:flex;gap:30px;margin-top:30px;color:#777;font-size:12px;letter-spacing:2px}.socials a:hover{color:var(--orange)}
+footer{border-top:1px solid #222;padding:30px 0;color:#555;font-size:11px}.footer{display:flex;justify-content:space-between}
+
+/* ===== GLASSMORPHIC SKILLS + ABOUT ===== */
+.glass-skills{margin-top:70px;display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.glass-card{
+  position:relative;min-height:270px;padding:34px;border:1px solid rgba(255,255,255,.18);
+  border-radius:24px;overflow:hidden;isolation:isolate;
+  background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.035));
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  box-shadow:inset 1px 1px 0 rgba(255,255,255,.18),inset -1px -1px 0 rgba(255,90,0,.08),0 25px 70px rgba(0,0,0,.35);
+  transform-style:preserve-3d;transition:transform .18s ease,box-shadow .35s ease,border-color .35s ease;
+}
+.glass-card:before{
+  content:"";position:absolute;inset:-40%;z-index:-2;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,20%),rgba(255,90,0,.28),transparent 25%);
+  pointer-events:none;
+}
+.glass-card:after{
+  content:"";position:absolute;top:-45%;left:-25%;width:65%;height:170%;z-index:-1;
+  transform:rotate(28deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.13),transparent);
+  transition:transform .8s ease;pointer-events:none;
+}
+.glass-card:hover{border-color:rgba(255,90,0,.55);box-shadow:inset 1px 1px 0 rgba(255,255,255,.25),0 30px 90px rgba(255,90,0,.12)}
+.glass-card:hover:after{transform:translateX(150%) rotate(28deg)}
+.glass-icon{
+  width:78px;height:78px;border-radius:22px;display:grid;place-items:center;
+  color:#fff;font-size:29px;font-weight:900;
+  background:linear-gradient(145deg,rgba(255,255,255,.32),rgba(255,90,0,.18));
+  border:1px solid rgba(255,255,255,.3);
+  box-shadow:inset 2px 2px 8px rgba(255,255,255,.28),inset -8px -8px 18px rgba(0,0,0,.22),0 12px 35px rgba(255,90,0,.2);
+  transform:translateZ(45px);position:relative;
+}
+.glass-icon:before{content:"";position:absolute;inset:7px;border-radius:17px;border:1px solid rgba(255,255,255,.15)}
+.glass-icon span{filter:drop-shadow(0 0 10px rgba(255,90,0,.8));font-family:Arial,sans-serif}
+.glass-card h3{margin-top:35px;font-family:Georgia,"Times New Roman",serif;font-size:30px;text-transform:uppercase;transform:translateZ(30px)}
+.glass-card p{color:#999;line-height:1.75;margin-top:10px;max-width:480px;transform:translateZ(20px)}
+.glass-tag{display:inline-block;margin-top:18px;color:var(--orange);font-size:9px;letter-spacing:3px}
+
+.about-glass{
+  position:relative;padding:42px;border-radius:28px;border:1px solid rgba(255,255,255,.18);
+  background:linear-gradient(135deg,rgba(255,255,255,.11),rgba(255,90,0,.035));
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  box-shadow:inset 1px 1px 0 rgba(255,255,255,.2),0 30px 80px rgba(0,0,0,.4);
+  overflow:hidden;transform-style:preserve-3d;transition:.25s;
+}
+.about-glass:before{
+  content:"";position:absolute;width:230px;height:230px;border-radius:50%;right:-90px;top:-100px;
+  background:radial-gradient(circle,#ff8a3d,rgba(255,90,0,.12) 45%,transparent 70%);
+  filter:blur(5px);opacity:.65;pointer-events:none;
+}
+.about-glass:after{
+  content:"";position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(120deg,rgba(255,255,255,.12),transparent 30%,transparent 70%,rgba(255,90,0,.05));
+  pointer-events:none;
+}
+.about-glass .section-label{position:relative;z-index:2}
+.about-copy{position:relative;z-index:2;font-size:23px;color:#aaa;line-height:1.8}
+.about-copy strong{color:#fff}.about-copy .orange{color:var(--orange)}
+.about-badge{
+  display:inline-flex;align-items:center;gap:10px;margin-top:25px;padding:12px 16px;
+  border:1px solid rgba(255,255,255,.14);border-radius:999px;
+  background:rgba(255,255,255,.055);color:#aaa;font-size:10px;letter-spacing:2px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12)
+}
+.about-badge i{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 14px var(--orange)}
+
+.glass-stats{border:0;display:grid;gap:14px}
+.glass-stat{
+  display:flex;align-items:center;justify-content:space-between;padding:18px 20px;
+  border:1px solid rgba(255,255,255,.13);border-radius:18px;
+  background:rgba(255,255,255,.055);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1);transition:.3s;transform-style:preserve-3d
+}
+.glass-stat:hover{transform:translateX(8px) translateZ(15px);border-color:rgba(255,90,0,.45);background:rgba(255,90,0,.07)}
+.glass-stat span:first-child{color:var(--orange);font-size:11px;letter-spacing:2px}
+.glass-stat span:last-child{color:#eee;font-size:12px;letter-spacing:1px}
+
+@media(max-width:800px){
+  .glass-skills{grid-template-columns:1fr;gap:16px;margin-top:45px}
+  .glass-card{min-height:245px;padding:27px;border-radius:20px}
+  .glass-icon{width:65px;height:65px;border-radius:18px}
+  .glass-card h3{font-size:25px;margin-top:28px}
+  .about-glass{padding:28px;border-radius:22px}
+  .about-copy{font-size:18px}
+  .glass-stat{padding:16px}
+}
+
+@media(max-width:800px){.nav-links{display:none}section{padding:100px 0}.hero h1{font-size:clamp(55px,17vw,100px);letter-spacing:-3px}.services,.work-grid,.about{grid-template-columns:1fr}.service{min-height:250px}.about-copy{font-size:19px}.step{grid-template-columns:50px 1fr}.step p{grid-column:2}.orb.one{width:100px;height:100px}.ring{width:180px;height:180px}.cube{transform:scale(.6)}.footer{flex-direction:column;gap:10px}}
+
+/* ===== PROFESSIONAL GLASS SYSTEM ===== */
+:root{
+  --glass-bg:rgba(255,255,255,.065);
+  --glass-bg-strong:rgba(255,255,255,.095);
+  --glass-border:rgba(255,255,255,.16);
+  --glass-highlight:rgba(255,255,255,.24);
+  --glass-shadow:0 24px 70px rgba(0,0,0,.42);
+  --orange-soft:rgba(255,90,0,.18);
+}
+body:after{
+  background:
+    radial-gradient(circle at 75% 18%,rgba(255,90,0,.10),transparent 28%),
+    radial-gradient(circle at 18% 78%,rgba(255,255,255,.035),transparent 25%),
+    linear-gradient(120deg,transparent 0%,rgba(255,255,255,.015) 50%,transparent 100%);
+}
+.scene{opacity:.82}
+.scene:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(5,5,5,.12),rgba(5,5,5,.32));
+}
+nav{background:rgba(5,5,5,.72);border-bottom:1px solid rgba(255,255,255,.10)}
+.nav{height:74px}
+.logo-mark{border-radius:12px;background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,90,0,.08));box-shadow:inset 1px 1px 0 rgba(255,255,255,.16),0 8px 25px rgba(0,0,0,.25)}
+.hero h1{letter-spacing:-4px;text-shadow:1px 1px 0 #aaa,3px 3px 0 #777,0 14px 50px rgba(0,0,0,.7)}
+.hero-description{font-size:16px;color:#a0a0a0}
+.btn{border-radius:12px;background:rgba(255,255,255,.035);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.btn.primary{background:linear-gradient(135deg,#ff6a18,#ff5a00);box-shadow:0 12px 35px rgba(255,90,0,.20)}
+.marquee{background:rgba(255,255,255,.012);backdrop-filter:blur(8px)}
+
+.glass-card,.about-glass,.glass-stat{
+  background:linear-gradient(135deg,rgba(255,255,255,.105),rgba(255,255,255,.035) 55%,rgba(255,90,0,.025));
+  border:1px solid var(--glass-border);
+  box-shadow:inset 1px 1px 0 rgba(255,255,255,.20),
+             inset -1px -1px 0 rgba(255,90,0,.07),
+             var(--glass-shadow);
+}
+.glass-card{border-radius:26px}
+.glass-card:before{
+  background:
+    radial-gradient(circle at var(--mx,50%) var(--my,20%),rgba(255,90,0,.25),transparent 22%),
+    linear-gradient(135deg,rgba(255,255,255,.08),transparent 45%);
+}
+.glass-card:after{
+  background:linear-gradient(100deg,transparent 15%,rgba(255,255,255,.20) 48%,transparent 55%);
+  opacity:.7;
+}
+.glass-card:hover{box-shadow:inset 1px 1px 0 rgba(255,255,255,.28),0 30px 90px rgba(0,0,0,.55),0 0 45px rgba(255,90,0,.08)}
+.glass-icon{
+  border-radius:20px;
+  background:linear-gradient(145deg,rgba(255,255,255,.23),rgba(255,90,0,.13) 50%,rgba(255,255,255,.035));
+  border:1px solid rgba(255,255,255,.27);
+  box-shadow:inset 2px 2px 9px rgba(255,255,255,.24),
+              inset -9px -9px 18px rgba(0,0,0,.20),
+              0 12px 35px rgba(255,90,0,.18);
+}
+.glass-icon:after{
+  content:"";position:absolute;left:13%;top:9%;width:48%;height:22%;
+  border-radius:999px;background:rgba(255,255,255,.22);filter:blur(5px);transform:rotate(-22deg);
+}
+.glass-card h3{font-size:29px;letter-spacing:-.5px}
+.glass-card p{font-size:14px}
+.glass-tag{font-weight:700}
+
+.about-glass{border-radius:28px}
+.about-glass:after{
+  background:
+    linear-gradient(115deg,rgba(255,255,255,.13),transparent 28%,transparent 68%,rgba(255,90,0,.045)),
+    linear-gradient(180deg,transparent 70%,rgba(0,0,0,.12));
+}
+.about-glass:before{opacity:.42}
+.about-badge{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.15)}
+.glass-stats{gap:12px}
+.glass-stat{border-radius:17px}
+.glass-stat:after{
+  content:"";width:34px;height:1px;background:linear-gradient(90deg,var(--orange),transparent);
+  position:absolute;left:20px;bottom:-1px;opacity:.55;
+}
+.glass-stat{position:relative;overflow:hidden}
+
+.service,.project{border-radius:22px}
+.project{background:linear-gradient(145deg,#0b0b0b,#070707);box-shadow:0 20px 55px rgba(0,0,0,.25)}
+.project-visual{background:radial-gradient(circle at 50% 40%,rgba(255,90,0,.18),transparent 31%),#0b0b0b}
+.project-info h3{letter-spacing:-.4px}
+
+.section-title{letter-spacing:-2px}
+.section-label{font-weight:700}
+footer{background:rgba(255,255,255,.01)}
+
+
+.contact:before{
+  content:"";position:absolute;width:520px;height:520px;right:-100px;top:50%;
+  transform:translateY(-50%);border-radius:50%;
+  background:radial-gradient(circle,rgba(255,90,0,.10),transparent 62%);
+  filter:blur(20px);pointer-events:none;z-index:-1;
+}
+
+
+@media(max-width:800px){
+  .glass-card,.about-glass,.glass-stat{transform:none!important}
+  .glass-card:after{opacity:.45}
+  .hero-description{font-size:15px}
+  .section-title{letter-spacing:-1px}
+}
+
+</style>
+</head>
+<body>
+
+<div class="scene">
+<div class="orb one"></div><div class="orb two"></div><div class="orb three"></div><div class="ring"></div>
+<div class="cube"><div class="front"></div><div class="back"></div><div class="right"></div><div class="left"></div><div class="top"></div><div class="bottom"></div></div>
+</div>
+
+<nav><div class="nav">
+<a href="#home" class="logo"><div class="logo-mark">S</div><div>SATYAM<span>.</span></div></a>
+<ul class="nav-links"><li><a href="#work">WORK</a></li><li><a href="#services">SERVICES</a></li><li><a href="#about">ABOUT</a></li><li><a href="#contact">CONTACT</a></li></ul>
+</div></nav>
+
+<section class="hero" id="home"><div class="container">
+<div class="section-label">CREATIVE FREELANCER — 2026</div>
+<h1>I MAKE<br>DIGITAL <span>THINGS.</span></h1>
+<p class="hero-description">I'm Satyam Upadhyay — a creative freelancer working across web development, video editing, graphic design and brand design. I turn ideas into clean, bold and memorable digital experiences.</p>
+<div class="hero-buttons"><a class="btn primary" href="https://contra.com/satyam_upadhyay_ve2kap94" target="_blank">VIEW MY CONTRA ↗</a><a class="btn" href="#work">EXPLORE WORK</a></div>
+</div></section>
+
+<div class="marquee"><div class="marquee-track">
+<span>WEB DEVELOPMENT</span><span>VIDEO EDITING</span><span>GRAPHIC DESIGN</span><span>BRAND DESIGN</span>
+<span>WEB DEVELOPMENT</span><span>VIDEO EDITING</span><span>GRAPHIC DESIGN</span><span>BRAND DESIGN</span>
+</div></div>
+
+<section id="services"><div class="container">
+<div class="section-label">01 — SERVICES</div>
+<h2 class="section-title">WHAT I CAN<br><span>CREATE FOR YOU.</span></h2>
+<div class="glass-skills">
+<div class="glass-card tilt-glass"><div class="glass-icon"><span>&lt;/&gt;</span></div><h3>Web Development</h3><p>Responsive websites, landing pages and digital experiences designed to look great on every screen.</p><span class="glass-tag">CODE / INTERACTION</span></div>
+<div class="glass-card tilt-glass"><div class="glass-icon"><span>▶</span></div><h3>Video Editing</h3><p>Short-form videos, social content, transitions, captions and visual storytelling.</p><span class="glass-tag">MOTION / STORY</span></div>
+<div class="glass-card tilt-glass"><div class="glass-icon"><span>✦</span></div><h3>Graphic Design</h3><p>Social media graphics, thumbnails, promotional visuals and digital content.</p><span class="glass-tag">VISUAL / DESIGN</span></div>
+<div class="glass-card tilt-glass"><div class="glass-icon"><span>◇</span></div><h3>Brand Design</h3><p>Logo concepts, typography and visual systems that give brands a recognizable identity.</p><span class="glass-tag">IDENTITY / BRAND</span></div>
+</div></div></section>
+
+<section id="work"><div class="container">
+<div class="section-label">02 — SELECTED WORK</div>
+<h2 class="section-title">IDEAS INTO<br><span>VISUALS.</span></h2>
+<p style="color:#777;max-width:600px;line-height:1.8;margin-top:25px">Practice and concept projects created while developing my skills across design, development and content.</p>
+<div class="work-grid">
+<div class="project"><div class="project-visual"><strong>WEB / 01</strong></div><div class="project-info"><small>WEB DEVELOPMENT</small><h3>Personal Portfolio</h3><p>A cinematic portfolio concept focused on presenting a freelancer's work and personality.</p></div></div>
+<div class="project"><div class="project-visual"><strong>VIDEO / 02</strong></div><div class="project-info"><small>VIDEO EDITING</small><h3>Creator Short Edit</h3><p>A concept social video using pacing, typography, transitions and visual storytelling.</p></div></div>
+<div class="project"><div class="project-visual"><strong>GD / 03</strong></div><div class="project-info"><small>GRAPHIC DESIGN</small><h3>Social Design Kit</h3><p>A fictional social media identity built around a consistent visual system.</p></div></div>
+<div class="project"><div class="project-visual"><strong>BRAND / 04</strong></div><div class="project-info"><small>BRAND DESIGN</small><h3>Startup Identity</h3><p>A concept brand identity exploring logo, typography and visual direction.</p></div></div>
+<div class="project"><div class="project-visual"><strong>UI / 05</strong></div><div class="project-info"><small>WEB + DESIGN</small><h3>Landing Page</h3><p>A minimal landing page concept combining frontend development and visual design.</p></div></div>
+<div class="project"><div class="project-visual"><strong>CONTENT / 06</strong></div><div class="project-info"><small>DESIGN + VIDEO</small><h3>Product Launch</h3><p>A fictional launch campaign combining graphics and short-form video.</p></div></div>
+</div></div></section>
+
+<section id="about"><div class="container">
+<div class="section-label">03 — ABOUT ME</div>
+<div class="about">
+<div class="about-glass tilt-glass">
+<div class="section-label">THE PERSON BEHIND THE WORK</div>
+<div class="about-copy">I'm <strong>Satyam</strong>.<br>I enjoy working where <span class="orange">technology</span> meets creativity.<br>Whether I'm building a website, editing a video, designing graphics or developing a brand identity, <strong>I care about making the final result feel intentional.</strong></div>
+<div class="about-badge"><i></i> AVAILABLE FOR CREATIVE PROJECTS</div>
+</div>
+<div class="glass-stats">
+<div class="glass-stat tilt-glass"><span>01</span><span>WEB DEVELOPMENT</span></div>
+<div class="glass-stat tilt-glass"><span>02</span><span>VIDEO EDITING</span></div>
+<div class="glass-stat tilt-glass"><span>03</span><span>GRAPHIC DESIGN</span></div>
+<div class="glass-stat tilt-glass"><span>04</span><span>BRAND DESIGN</span></div>
+</div></div>
+</div></section>
+
+<section><div class="container">
+<div class="section-label">04 — PROCESS</div>
+<h2 class="section-title">HOW I<br><span>WORK.</span></h2>
+<div class="process">
+<div class="step"><div class="step-number">01</div><h3>UNDERSTAND</h3><p>I first understand the idea, audience and goal behind the project.</p></div>
+<div class="step"><div class="step-number">02</div><h3>EXPLORE</h3><p>I explore visual directions, layouts and creative ideas that fit the project.</p></div>
+<div class="step"><div class="step-number">03</div><h3>BUILD</h3><p>I turn the chosen direction into a polished and functional result.</p></div>
+<div class="step"><div class="step-number">04</div><h3>REFINE</h3><p>I improve the small details until everything feels clean and intentional.</p></div>
+</div></div></section>
+
+<section id="contact"><div class="container contact"><div>
+<div class="section-label">05 — LET'S TALK</div>
+<h2>LET'S MAKE<br>SOMETHING <span>GOOD.</span></h2>
+<a class="contact-email" href="mailto:akatsuki_shadow@outlook.com">akatsuki_shadow@outlook.com</a>
+<div class="socials"><a href="https://contra.com/satyam_upadhyay_ve2kap94" target="_blank">CONTRA ↗</a><a href="https://discord.gg/FsJKPU2A" target="_blank">DISCORD ↗</a></div>
+</div></div></section>
+
+<footer><div class="container footer"><span>© <span id="year"></span> SATYAM UPADHYAY</span><span>CREATED WITH CODE & CREATIVITY.</span></div></footer>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+document.addEventListener("mousemove",e=>{
+ const x=(e.clientX/innerWidth-.5)*2,y=(e.clientY/innerHeight-.5)*2;
+ document.querySelector(".orb.one").style.margin=`${y*10}px ${x*10}px`;
+ document.querySelector(".orb.two").style.margin=`${y*-14}px ${x*-14}px`;
+ document.querySelector(".orb.three").style.margin=`${y*18}px ${x*18}px`;
+});
+document.querySelectorAll(".project").forEach(card=>{
+ card.addEventListener("mousemove",e=>{
+  const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+  card.style.transform=`perspective(1000px) rotateX(${y*-6}deg) rotateY(${x*6}deg) translateY(-8px)`;
+ });
+ card.addEventListener("mouseleave",()=>card.style.transform="");
+});
+const reveal=document.querySelectorAll(".project,.step");
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.style.opacity="1";
+   entry.target.style.transform="translateY(0)";
+  }
+ });
+},{threshold:.12});
+reveal.forEach(el=>{
+ el.style.opacity="0";
+ el.style.transform="translateY(40px)";
+ el.style.transition="opacity .8s ease, transform .8s ease";
+ observer.observe(el);
+});
+
+document.querySelectorAll(".tilt-glass").forEach(card=>{
+ card.addEventListener("mousemove",e=>{
+  const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+  card.style.setProperty("--mx",(x*100+50)+"%");
+  card.style.setProperty("--my",(y*100+50)+"%");
+  card.style.transform=`perspective(900px) rotateX(${y*-7}deg) rotateY(${x*7}deg) translateZ(8px)`;
+ });
+ card.addEventListener("mouseleave",()=>{card.style.transform="";card.style.removeProperty("--mx");card.style.removeProperty("--my")});
+});
+</script>
+</body>
+</html>
